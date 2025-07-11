@@ -16,6 +16,8 @@
     --lbl-line-height: 1.6;
     --boreder-clr: rgb(228, 228, 228);
     --margin-lft: 40px;
+    --hover-clr: rgb(80, 2, 148);
+    --button-clr: rgb(139, 6, 255);
 }
 
 html {
@@ -81,15 +83,36 @@ body {
 
 .form-group input:hover, 
 .form-group input:focus {
-    border-color: rgb(80, 2, 148);
+    border-color: var(--hover-clr);
     cursor: pointer;
+}
+
+.underline-and-button-cntr {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
 }
 
 .underline {
     height: 1.5px;
     background-color: var(--boreder-clr);
-    width: 490px;
-    margin-top: 20px;
-    margin-left: var( --margin-lft);
+    width: 75%;
+    /* margin-top: 2px; */
+    /* margin-left: var( --margin-lft); */
+}
+
+button {
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    background-color: var( --button-clr);
+    border: none;
+}
+
+button:hover,
+button:focus {
+    cursor: pointer;
+    background-color: #000;
 }
 
