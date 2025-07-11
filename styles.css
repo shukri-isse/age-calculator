@@ -41,7 +41,7 @@ body {
     min-height: 100vh; /*element will take up full screen*/
 }
 
-#calendar-container {
+#calculator-container {
     background-color: #fff;
     width: 625px;
     height: 475px;
