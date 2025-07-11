@@ -7,6 +7,7 @@
   <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
   
   <title>Frontend Mentor | Age calculator app</title>
+  <link rel="stylesheet" href="styles.css">
 
   <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
   <style>
@@ -15,23 +16,51 @@
   </style>
 </head>
 <body>
+  <div id="calendar-container">
+    <form id="my-form">
+      <div class="form-row">
+        <!-- div to group together each label + input + error msg/validation-->
+        <div class="form-group"> <!--make it a class to syle all form groups in uniform-->
+          <label for="birth-day" class="uppercase">Day</label>
+          <input type="text" id="birth-day" name="day" placeholder="DD">
+          <!--span or error msg b/c it's inline and doesn't mess with layout b/c it doesn't take up extra space & doesn't start on a new line-->
+          <span class="error-message" id="birth-day-error"></span>
+        </div>
 
-  Day
-  DD
+        <div class="form-group">
+          <label for="birth-month" class="uppercase">Month</label>
+          <input type="text" id="birth-month" name="month" placeholder="MM">
+          <span class="error-message" id="birth-month-error"></span>
+        </div>
 
-  Month
-  MM
+        <div class="form-group">
+          <label for="birth-year" class="uppercase">Year</label>
+          <input type="text" id="birth-year" name="year" placeholder="YYYY">
+          <span class="error-message" id="birth-year-error"></span>
+        </div>
+      </div>
+    </form>
 
-  Year
-  YYYY
+    <div class="underline"></div>
 
-  -- years
-  -- months
-  -- days
-  
+    
+    <!-- 
+      Day
+      DD
+
+      Month
+      MM
+
+      Year
+      YYYY
+
+      -- years
+      -- months
+      -- days -->
+  </div>
   <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
+      Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+      Coded by <a href="#">Shukri Isse</a>.
   </div>
 </body>
 </html>

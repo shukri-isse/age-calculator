@@ -1,0 +1,95 @@
+/* CSS Reset */
+*,
+::before,
+::after {
+    box-sizing: border-box; /*avoids overflow from padding and margins*/
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --bckgrnd-color: #F8E7F6;
+    --fnt-fam: Verdana, Geneva, Tahoma, sans-serif;
+    --ltr-spcing: 2px;
+    --fnt-color: hsl(0, 0%, 55%);
+    --lbl-fnt-size: 12px;
+    --lbl-line-height: 1.6;
+    --boreder-clr: rgb(228, 228, 228);
+    --margin-lft: 40px;
+}
+
+html {
+    background-color: var(--bckgrnd-color);
+    font-family: var(--fnt-fam);
+    font-weight: bold;
+    letter-spacing: var( --ltr-spcing);
+    color: var(--fnt-color);
+    font-size: var(--lbl-fnt-size);
+    line-height: var(--lbl-line-height);
+}
+
+.uppercase {
+    text-transform: uppercase; /* makes all caps*/
+}
+
+/* to center child, make parent container display flex, justify-content center, align-items center */
+body {
+    display: flex;
+    flex-direction: column; /* children containers will appear in a column*/
+    justify-content: center; /*align horozontally*/
+    align-items: center; /*align vertically*/
+    min-height: 100vh; /*element will take up full screen*/
+}
+
+#calendar-container {
+    background-color: #fff;
+    width: 625px;
+    height: 475px;
+    border-radius: 10px;
+    border-bottom-right-radius: 150px;
+}
+
+.form-row{
+    margin-top: 40px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.form-group label, .form-group input{
+    display: block;
+    margin-left: var( --margin-lft);
+    margin-bottom: 10px;
+    font-family: inherit;
+    font-weight: inherit;
+    font: #000;
+        gap: 5px;
+
+}
+
+.form-group input {
+    border-radius: 5px;
+    border: 1px solid rgb(228, 228, 228);
+    box-shadow: none;
+    outline: none;
+    width: 115px;
+    height: 45px;
+    padding-left: 10px;
+    font-size: 20px;
+    line-height: var(--lbl-line-height);
+}
+
+.form-group input:hover, 
+.form-group input:focus {
+    border-color: rgb(80, 2, 148);
+    cursor: pointer;
+}
+
+.underline {
+    height: 1.5px;
+    background-color: var(--boreder-clr);
+    width: 490px;
+    margin-top: 20px;
+    margin-left: var( --margin-lft);
+}
+
