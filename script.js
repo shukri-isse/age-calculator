@@ -11,6 +11,12 @@ const birthDayError = document.getElementById("birth-day-error");
 const birthMonthError = document.getElementById("birth-month-error");
 const birthYearError = document.getElementById("birth-year-error");
 
+const resetErrorMsg = (err, inputElement, inputElmntLabel) => {
+    err.textContent = "";
+    err.style.display = "none";
+    inputElement.classList.remove("error");
+    inputElmntLabel.classList.remove("error");
+};
 
 myForm.addEventListener("submit", (event) => {
     event.preventDefault();
@@ -20,27 +26,14 @@ myForm.addEventListener("submit", (event) => {
     const birthYearInput = year.value;
 
     //reset error message for day
-    birthDayError.textContent = "";
-    birthDayError.style.display = "none";
-    day.classList.remove("error");
-    dayLabel.classList.remove("error");
+    resetErrorMsg(birthDayError, day, dayLabel);
 
     //reset error message for month
-    birthMonthError.textContent = "";
-    birthMonthError.style.display = "none";
-    month.classList.remove("error");
-    monthLabel.classList.remove("error");
-    // month.classList.remove("validError");
-    // month.classList.remove("requiredError");
-
+    resetErrorMsg(birthMonthError, month, monthLabel);
+   
     //reset error message for year
-    birthYearError.style.display = "none";
-    birthYearError.textContent = "";
-    year.classList.remove("error");
-    yearLabel.classList.remove("error");
-    // year.classList.remove("validError");
-    // year.classList.remove("requiredError");
-
+    resetErrorMsg(birthYearError, year, yearLabel);
+   
 
     // Day
     if (!day.checkValidity()){
