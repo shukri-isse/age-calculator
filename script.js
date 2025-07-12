@@ -18,6 +18,13 @@ const resetErrorMsg = (err, inputElement, inputElmntLabel) => {
     inputElmntLabel.classList.remove("error");
 };
 
+const showErrMsg = (err, message, inputElement, inputElmntLabel) => {
+    err.textContent = message;
+    err.style.display = "block";
+    inputElement.classList.add("error");
+    inputElmntLabel.classList.add("error");
+};
+
 myForm.addEventListener("submit", (event) => {
     event.preventDefault();
 
@@ -36,56 +43,40 @@ myForm.addEventListener("submit", (event) => {
    
 
     // Day
+    // if invalid
     if (!day.checkValidity()){
-        // if invalid b/c no input
+        // if invalid b/c user gave no input
         if (birthDayInput=="") {
-            //give error message
-            birthDayError.textContent = "This field is required";
-            //show error msg
-            birthDayError.style.display = "block";
-
+            showErrMsg(birthDayError, "This field is required", day, dayLabel);
         }
+    
         // if invalid b/c user gave wrong/improper input
         else {
-            //give error message
-            birthDayError.textContent = "Must be a valid day";
-            // show error msg
-            birthDayError.style.display = "block";
+            showErrMsg(birthDayError, "Must be a valid day", day, dayLabel);
+    
         }
-          // add required error class to day input element
-        day.classList.add("error");
-        dayLabel.classList.add("error");
     }
 
     // Month
     if (!month.checkValidity()){
         if (birthMonthInput=="") {
-            birthMonthError.textContent = "This field is required";
-            birthMonthError.style.display = "block";
+            showErrMsg(birthMonthError, "This field is required", month, monthLabel);
         }
         else {
-            birthMonthError.textContent = "Must be a valid month";
-            birthMonthError.style.display = "block";
+            showErrMsg(birthMonthError, "Must be a valid day", month, monthLabel);
         }
-        month.classList.add("error");
-        monthLabel.classList.add("error");
     }
 
     // Year
     const date = new Date();
     const currYear = date.getFullYear();
     if (!year.checkValidity() || parseInt(birthYearInput) > currYear){
-        ///
         if (birthYearInput=="") {
-            birthYearError.textContent = "This field is required";
-            birthYearError.style.display = "block";
+           showErrMsg(birthYearError, "This field is required", year, yearLabel);
         }
         else {
-            birthYearError.textContent = "Must be in the past";
-            birthYearError.style.display = "block";
+            showErrMsg(birthYearError, "Must be in the past", year, yearLabel);
         }
-        year.classList.add("error");
-        yearLabel.classList.add("error");
     }
 
 //  calculateAge(birthDayInput, birthMonthInput,birthYearInput);
