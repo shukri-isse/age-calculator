@@ -8,6 +8,7 @@
   
   <title>Frontend Mentor | Age calculator app</title>
   <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
 
   <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
   <style>
@@ -18,31 +19,31 @@
 <body>
   <!--change to section b/c it contains meaninful info-->
   <section id="calculator-container">
-    <form id="my-form">
+    <!--novalidate disables built in pop up error messages and lets you  create ur own-->
+    <form id="my-form" novalidate>
       <div class="form-row">
 
         <!-- div to group together each label + input + error msg/validation-->
         <div class="form-group"> <!--make it a class to syle all form groups in uniform-->
-          <label for="birth-day" class="uppercase">Day</label>
-          <input type="text" id="birth-day" name="day" placeholder="DD">
-          <!--span or error msg b/c it's inline and doesn't mess with layout b/c it doesn't take up extra space & doesn't start on a new line-->
+          <label for="birth-day" class="uppercase" id="birth-day-label">Day</label>
+          <input type="text" id="birth-day" name="day" placeholder="DD" pattern="^(0?[1-9]|[12][0-9]|3[01])$" required maxlength="2">
           <span class="error-message" id="birth-day-error"></span>
         </div>
 
         <div class="form-group">
-          <label for="birth-month" class="uppercase">Month</label>
-          <input type="text" id="birth-month" name="month" placeholder="MM">
+          <label for="birth-month" class="uppercase" id="birth-month-label">Month</label>
+          <input type="text" id="birth-month" name="month" placeholder="MM" pattern="^(0?[1-9]|1[0-2])$" required maxlength="2">
           <span class="error-message" id="birth-month-error"></span>
         </div>
 
         <div class="form-group">
-          <label for="birth-year" class="uppercase">Year</label>
-          <input type="text" id="birth-year" name="year" placeholder="YYYY">
+          <label for="birth-year" class="uppercase" id="birth-year-label">Year</label>
+          <input type="text" id="birth-year" name="year" placeholder="YYYY" required maxlength="4">
           <span class="error-message" id="birth-year-error"></span>
         </div>
 
       </div>
-      <div class="underline-and-button-cntr">
+      <div class="underline-and-button-container">
         <div class="underline"></div>
         <button type="submit">
           <svg width="24" height="24" viewBox="6 6 12 12" fill="white" xmlns="http://www.w3.org/2000/svg">
@@ -57,8 +58,12 @@
       </div>
     </form>
 
-    <!--change to section b/c it contains meaninful info-->
-    <section class="results"></section>
+    <div class="results">
+      <p><span class="number">--</span> years</p>
+      <p><span class="number">--</span> months</p>
+      <p><span class="number">--</span> days</p>
+
+    </div>
     <!-- 
       Day
       DD
@@ -75,7 +80,7 @@
   </section>
   <div class="attribution">
       Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-      Coded by <a href="#">Shukri Isse</a>.
+      Coded by <a href="https://github.com/shukri-isse" target="_blank">Shukri Isse</a>.
   </div>
 </body>
 </html>
