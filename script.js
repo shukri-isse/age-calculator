@@ -11,6 +11,10 @@ const birthDayError = document.getElementById("birth-day-error");
 const birthMonthError = document.getElementById("birth-month-error");
 const birthYearError = document.getElementById("birth-year-error");
 
+const resultsYears = document.getElementById("calculatedYears");
+const resultsMonths = document.getElementById("calculatedMonths");
+const resultsDays = document.getElementById("calculatedDays");
+
 const resetErrorMsg = (err, inputElement, inputElmntLabel) => {
     err.textContent = "";
     err.style.display = "none";
@@ -68,7 +72,13 @@ const calculateAge = (day, month, year) => {
     // console.log(`monthDifference ${monthDifference}`)
     // console.log(`dayDifference ${dayDifference}`)
     return {yearDifference, monthDifference, dayDifference};
-}
+};
+
+const displayAge = (years, months, days) => {
+    resultsYears.textContent = years;
+    resultsMonths.textContent = months;
+    resultsDays.textContent = days;
+};
 
 myForm.addEventListener("submit", (event) => {
     event.preventDefault();
@@ -100,6 +110,7 @@ myForm.addEventListener("submit", (event) => {
             showErrMsg(birthDayError, "Must be a valid day", day, dayLabel);
     
         }
+        return;
     }
 
     // Month
@@ -108,8 +119,9 @@ myForm.addEventListener("submit", (event) => {
             showErrMsg(birthMonthError, "This field is required", month, monthLabel);
         }
         else {
-            showErrMsg(birthMonthError, "Must be a valid day", month, monthLabel);
+            showErrMsg(birthMonthError, "Must be a valid month", month, monthLabel);
         }
+        return;
     }
 
     // Year
@@ -122,11 +134,13 @@ myForm.addEventListener("submit", (event) => {
         else {
             showErrMsg(birthYearError, "Must be in the past", year, yearLabel);
         }
+        return;
     }
 
 // destructure to save/return 3 values for year month and day
 const {yearDifference, monthDifference, dayDifference} = calculateAge(birthDayInput, birthMonthInput, birthYearInput);
-console.log(yearDifference);
-console.log(monthDifference);
-console.log(dayDifference);
+// console.log(yearDifference);
+// console.log(monthDifference);
+// console.log(dayDifference);
+displayAge(yearDifference, monthDifference, dayDifference)
 });

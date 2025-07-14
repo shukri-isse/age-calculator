@@ -1,3 +1,45 @@
+@font-face {
+  font-family: 'Poppins';
+  src: url('./assets/fonts/Poppins-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Poppins';
+  src: url('./assets/fonts/Poppins-Italic.ttf') format('truetype');
+  font-weight: 400;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Poppins';
+  src: url('./assets/fonts/Poppins-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Poppins';
+  src: url('./assets/fonts/Poppins-BoldItalic.ttf') format('truetype');
+  font-weight: 700;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Poppins';
+  src: url('./assets/fonts/Poppins-ExtraBold.ttf') format('truetype');
+  font-weight: 800;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Poppins';
+  src: url('./assets/fonts/Poppins-ExtraBoldItalic.ttf') format('truetype');
+  font-weight: 800;
+  font-style: italic;
+}
+
 /* CSS Reset */
 *,
 ::before,
@@ -9,12 +51,12 @@
 
 :root {
     --bckgrnd-color: #F8E7F6;
-    --fnt-fam: Verdana, Geneva, Tahoma, sans-serif;
-    --ltr-spcing: 2px;
+    --fnt-fam: Poppins;
+    --ltr-spacing: 1px;
     --fnt-color: hsl(0, 0%, 55%);
     --lbl-fnt-size: 12px;
     --lbl-line-height: 1.6;
-    --boreder-clr: rgb(228, 228, 228);
+    --border-clr: rgb(228, 228, 228);
     --margin-lft: 40px;
     --hover-clr: rgb(80, 2, 148);
     --button-clr: rgb(139, 6, 255);
@@ -24,7 +66,7 @@ html {
     background-color: var(--bckgrnd-color);
     font-family: var(--fnt-fam);
     font-weight: bold;
-    letter-spacing: var( --ltr-spcing);
+    letter-spacing: var(--ltr-spacing);
     color: var(--fnt-color);
     font-size: var(--lbl-fnt-size);
     line-height: var(--lbl-line-height);
@@ -61,12 +103,11 @@ body {
 
 .form-group label, .form-group input, .form-group span{
     display: block;
-    margin-left: var( --margin-lft);
+    margin-left: var(--margin-lft);
     margin-bottom: 5px;
     font-family: inherit;
     font-weight: inherit;
-    font: #888;
-    gap: 5px;
+    margin-right: 5px;
 }
 
 .form-group input {
@@ -96,17 +137,17 @@ body {
 
 .underline {
     height: 1.5px;
-    background-color: var(--boreder-clr);
+    background-color: var(--border-clr);
     width: 75%;
     /* margin-top: 2px; */
-    /* margin-left: var( --margin-lft); */
+    /* margin-left: var(--margin-lft); */
 }
 
 button {
     width: 75px;
     height: 75px;
     border-radius: 50%;
-    background-color: var( --button-clr);
+    background-color: var(--button-clr);
     border: none;
 }
 
@@ -119,14 +160,13 @@ button:focus {
 .results {
     display: flex;
     flex-direction: column;
-    align-items: left;
+    align-items: flex-start;
 
-    font-size: 4.5rem;
+    font-size: 5rem;
     color: black;
     font-weight:  800;
     font-style: italic;
-
-    gap: 10px;
+    margin-left: var(--margin-lft);
 }
 
 .error-message {
@@ -143,5 +183,9 @@ input.error {
 
 label.error{
     color: red;
+}
+
+span {
+    color: var(--button-clr);
 }
 
